@@ -19,3 +19,4 @@ regex==2020.11.13
 Flask==1.1.1
 flask-restful==0.3.8
 pymessenger==0.0.7.0
+flask-cors==3.0.10
