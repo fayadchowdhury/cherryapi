@@ -23,7 +23,8 @@ def makeMessage(dataframe, name):
     message = name + "\n"
     message = getProducts(dataframe, message)
     message += "\nTotal - " + str(sum) + " BDT\n"
-    message += "Weight charge - " + str(wc) + " BDT\n"
+    if (wc > 0):
+        message += "Weight charge - " + str(wc) + " BDT\n"
     message += "Advanced - " + str(adv) + " BDT\n"
     message += "Due = " + str(sum - adv + wc) + " BDT + Delivery Charge (" +  deliveryArea + ")\n"
     message += "\nDelivery Details:\n"
