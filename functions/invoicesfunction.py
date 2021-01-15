@@ -592,3 +592,12 @@ def makeInvoice(dataframe, name):
     invoiceData.append([totalItems])
     invoiceData.append(["------------------------------------------"])
     return invoiceData
+
+def generateInvoices(dataframe):
+    invoices = []
+    temp = dataframe[(dataframe['Order Status'] == 'Dispatch')]
+    names = temp['Facebook Name'].unique()
+    for name in names:
+        finalDataframe = temp[(temp['Facebook Name'] == name)]
+        invoices.append(makeInvoice(finalDataframe, name))
+    writeinvoice(invoices, getSheetID())
