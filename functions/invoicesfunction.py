@@ -473,24 +473,22 @@ def formatInvoice(totallength, sheetId):
             }})
 
 
-# D7-D8 text bold, fontSize
-requests.append({'repeatCell': {
-    'range': {
-        'sheetId': sheetId,
-        'startColumnIndex': 3 + i * 5,
-        'startRowIndex': 6 + j * 9,
-        'endColumnIndex': 4 + i * 5,
-        'endRowIndex': 8 + j * 9
-    },
-    'cell': {
-        'userEnteredFormat': {
-            'textFormat': {'bold': True, 'fontSize': 14, }
-        }
-    },
-    'fields': 'userEnteredFormat(textFormat)'
-}})
-
-
+            # D7-D8 text bold, fontSize
+            requests.append({'repeatCell': {
+                'range': {
+                    'sheetId': sheetId,
+                    'startColumnIndex': 3 + i * 5,
+                    'startRowIndex': 6 + j * 9,
+                    'endColumnIndex': 4 + i * 5,
+                    'endRowIndex': 8 + j * 9
+                },
+                'cell': {
+                    'userEnteredFormat': {
+                        'textFormat': {'bold': True, 'fontSize': 14, }
+                    }
+                },
+                'fields': 'userEnteredFormat(textFormat)'
+            }})
 
             # C7-C8 Border
             requests.append({'repeatCell': {
@@ -578,17 +576,17 @@ requests.append({'repeatCell': {
                 'fields': 'userEnteredFormat(borders)'
             }})
 
-    # E width
-    requests.append({'updateDimensionProperties': {
-        'range': {
-            'sheetId': sheetId,
-            'dimension': 'COLUMNS',
-            'startIndex': 4,
-            'endIndex': 5
-        },
-        'properties': {'pixelSize': 20},
-        'fields': 'pixelSize'
-    }})
+            # E width
+            requests.append({'updateDimensionProperties': {
+                'range': {
+                    'sheetId': sheetId,
+                    'dimension': 'COLUMNS',
+                    'startIndex': 4,
+                    'endIndex': 5
+                },
+                'properties': {'pixelSize': 20},
+                'fields': 'pixelSize'
+            }})
     response = sheet.batchUpdate(spreadsheetId=SAMPLE_SPREADSHEET_ID, body={'requests': requests}).execute()
 
 
@@ -653,6 +651,7 @@ def makeInvoice(dataframe, name):
     invoiceData.append([totalItems])
     invoiceData.append(["------------------------------------------"])
     return invoiceData
+
 
 def generateInvoices(dataframe):
     invoices = []
