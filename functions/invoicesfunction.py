@@ -343,19 +343,19 @@ def formatInvoice(totallength, sheetId):
                     'endIndex': 2 + i * 5
                 },
                 'properties':{'pixelSize': 135},
-       'fields':'pixelSize'
-      }})
+                'fields':'pixelSize'
+            }})
 
-      #A7-A8 row height
-      requests.append({'updateDimensionProperties': {
-       'range': {
-          'sheetId': sheetId,
-          'dimension': 'ROWS',
-          'startIndex': 6 + j*9,
-          'endIndex': 8 + j*9
-       },
-       'properties':{'pixelSize': 23},
-                'fields': 'pixelSize'
+            #A7-A8 row height
+            requests.append({'updateDimensionProperties': {
+               'range': {
+                  'sheetId': sheetId,
+                  'dimension': 'ROWS',
+                  'startIndex': 6 + j*9,
+                  'endIndex': 8 + j*9
+               },
+               'properties':{'pixelSize': 23},
+                        'fields': 'pixelSize'
             }})
 
             # A4-A5 text wrap and alignment
