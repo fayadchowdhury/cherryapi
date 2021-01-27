@@ -17,10 +17,8 @@ def getProducts(dataframe, message):
             advanced = ""
         message += str(j) + ". " + brand + " - " + name + specifics + " (x" + dataframe.loc[i, '#'] + ") - " + \
                    dataframe.loc[i, 'Price'] + " BDT" + advanced
-        if (dataframe.loc[i, 'WC'] != '' and re.search('[a-zA-Z]+', dataframe.loc[i, 'WC']) == None):
+        if (dataframe.loc[i, 'WC'] != ''):
             message += " + " + dataframe.loc[i, 'WC'] + " BDT (Weight charge)"
-        elif (re.search('[a-zA-Z]+', dataframe.loc[i, 'WC']) != None):
-            message += " + Error calculating weight charge"
         message += "\n"
         j = j + 1
     return message
