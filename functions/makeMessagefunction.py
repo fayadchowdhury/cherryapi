@@ -23,8 +23,18 @@ def makeMessage(dataframe, name):
     message = name + "\n"
     message = getProducts(dataframe, message)
     message += "\nTotal - " + str(sum) + " BDT\n"
-    if (wc > 0):
-        message += "Weight charge - " + str(wc) + " BDT\n"
+    weirdFlag = False
+    for val in dataframe['WC']:
+      if (val != ''):
+        if ( re.search('[a-zA-Z]+', val) == None ):
+          continue
+        else:
+          weirdFlag = True
+    if ( weirdFlag == True):
+      message+="Weight charge (According to the list above)\n"
+    else:
+      if ( wc > 0 ):
+        message+="Weight charge - " + str(wc) + " BDT\n"
     message += "Advanced - " + str(adv) + " BDT\n"
     message += "Due = " + str(sum - adv + wc) + " BDT + Delivery Charge (" +  deliveryArea + ")\n"
     message += "\nDelivery Details:\n"
