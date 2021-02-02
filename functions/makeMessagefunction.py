@@ -31,6 +31,7 @@ def makeMessage(dataframe, name):
           continue
         else:
           weirdFlag = True
+
     if ( weirdFlag == True ):
       due = sum - adv
     else:
@@ -40,10 +41,12 @@ def makeMessage(dataframe, name):
       message+="Weight charge - " + str(wc) + " BDT\n"
 
     message+="Advanced - " + str(adv) + " BDT\n"
+
     if ( weirdFlag == True ):
       message += "Due = " + str(due) + " BDT + Delivery Charge (" +  deliveryArea + ") + Weight Charge (According to the list above)\n"
     else:
-    message += "Due = " + str(due) + " BDT + Delivery Charge (" +  deliveryArea + ")\n"
+      message += "Due = " + str(due) + " BDT + Delivery Charge (" +  deliveryArea + ")\n"
+
     message += "\nDelivery Details:\n"
     message+="Contact Number: " + contactNumber + "\n"
     message+="Address: " + address + "\n"
