@@ -6,6 +6,7 @@ from functions.getContactNumberfunction import getContactNumber
 from functions.getAddressfunction import getAddress
 from functions.getProductsfunction import getProducts
 
+import re
 
 def makeMessage(dataframe, name):
     sum = getTotalPrice(dataframe)
