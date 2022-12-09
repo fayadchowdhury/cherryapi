@@ -31,6 +31,10 @@ import random
 
 
 app = Flask(__name__)
+@app.route('/')
+def home():
+    return 'HOME!'
+
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 api = Api(app)
